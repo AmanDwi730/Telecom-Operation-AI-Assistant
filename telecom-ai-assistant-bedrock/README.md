@@ -67,7 +67,7 @@ An AI-powered operations assistant for telecom NOC/SOC/Field Engineering teams, 
 
 ## How We Used the Cursor Agent Toolkit for AWS
 
-The [Cursor Agent Toolkit for AWS](https://github.com/aws/cursor-agent-toolkit-for-aws) was used throughout development to:
+The Agent Toolkit for AWS was used throughout development to:
 
 1. **Scaffold the project** - Generated the initial FastAPI + Streamlit project structure with proper Python packaging
 2. **AWS Bedrock integration** - Used the toolkit's AWS skill guidance to correctly configure the boto3 Bedrock client, choose between Converse and InvokeModel APIs, and set up IAM permissions
@@ -83,7 +83,6 @@ The [Cursor Agent Toolkit for AWS](https://github.com/aws/cursor-agent-toolkit-f
 
 ## Folder Structure
 
-```text
 telecom-ai-assistant-bedrock/
 ├── backend/
 │   ├── app.py                  # FastAPI routes (chat, health, memory, search)
@@ -109,7 +108,6 @@ telecom-ai-assistant-bedrock/
 ├── LICENSE
 ├── requirements.txt            # Python dependencies
 └── README.md
-```
 
 ---
 
@@ -160,13 +158,12 @@ streamlit run frontend/streamlit_app.py
 
 ### Deploy to AWS (CloudFormation)
 
-```bash
-# Package app and upload to S3
+Package app and upload to S3
 zip -r telecom-app.zip backend/ frontend/ data/supplemental/ requirements.txt
 aws s3 cp telecom-app.zip s3://<your-bucket>/telecom-app.zip
 aws s3 cp data/3gpp_standard_telecom_dataset_updated.xlsx s3://<your-bucket>/
 
-# Deploy stack (replace placeholder values with your own)
+Deploy stack (replace placeholder values with your own)
 aws cloudformation deploy \
   --template-file infra/telecom-stack.yaml \
   --stack-name telecom-ai-assistant \
@@ -175,7 +172,6 @@ aws cloudformation deploy \
     S3Bucket=<your-s3-bucket> \
     VpcId=<your-vpc-id> \
     SubnetId=<your-subnet-id>
-```
 
 ---
 
@@ -197,23 +193,6 @@ aws cloudformation deploy \
 
 - **Short-term memory** - Per-session conversation history stored in `data/memory/session_memory.json`. Capped to the last 16 turns. Cleared on new session.
 - **Long-term memory** - Per-user persistent facts extracted heuristically (preferences, telecom domains of interest, recurring topics). Stored in `data/memory/long_term_memory.json`. Persists across sessions.
-
----
-
-## Future Scope
-
-- [ ] **Vector embeddings with Amazon Bedrock Knowledge Bases** - Replace the keyword-based retriever with a proper vector store (OpenSearch Serverless or Amazon Aurora pgvector) for semantic search over the 3GPP dataset
-- [ ] **Streaming responses** - Use `InvokeModelWithResponseStream` for real-time token streaming in the chat UI
-- [ ] **Multi-turn Converse API** - Pass full conversation history to Bedrock's Converse API instead of single-shot prompts
-- [ ] **Amazon Bedrock Guardrails** - Add content filtering, PII redaction, and topic guardrails for production safety
-- [ ] **Amazon Bedrock Agents** - Convert to a Bedrock Agent with action groups for live NOC tool integration (alarm APIs, ticketing systems, network element queries)
-- [ ] **Authentication** - Add Cognito-based user authentication to the Streamlit frontend
-- [ ] **Containerize with ECS/Fargate** - Replace EC2 deployment with container-based architecture for auto-scaling
-- [ ] **CI/CD pipeline** - Add CodePipeline or GitHub Actions for automated testing and deployment
-- [ ] **Observability** - Add CloudWatch metrics, X-Ray tracing, and structured logging via AWS Powertools
-- [ ] **Multi-model support** - Allow runtime switching between Nova, Claude, and Llama models via the UI
-- [ ] **Fine-tuning** - Use Amazon Bedrock custom model training on telecom-specific Q&A pairs for improved domain accuracy
-- [ ] **Feedback loop** - Add thumbs-up/down on responses to build a RLHF dataset
 
 ---
 
