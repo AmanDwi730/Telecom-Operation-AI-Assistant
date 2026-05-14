@@ -9,12 +9,13 @@ An AI-powered operations assistant for telecom NOC/SOC/Field Engineering teams, 
 ## What It Does
 
 - Answers telecom incident, alarm, and Root Cause Analysis (RCA) questions using natural language
-- Retrieves relevant context from a **3GPP standard telecom dataset** (500+ incidents across 5G Core, LTE/RAN, IMS/VoLTE, Transport, Fiber, OSS/BSS)
+- Retrieves relevant context from a **3GPP standard telecom dataset** (1000+ incidents across 5G Core, LTE/RAN, IMS/VoLTE, Transport, Fiber, OSS/BSS)
 - Augments answers with curated **supplemental telecom knowledge** (RCA playbooks, KPI cheatsheets, alarm guides, support principles)
 - Maintains **short-term memory** (per session) for conversational continuity
 - Maintains **long-term memory** (per user, across sessions) for preferences, domain interests, and recurring topics
 - Provides a **severity dashboard** with real-time incident counts (Critical/High/Medium/Low)
 - Supports **incident ID search** (full or partial match) from the sidebar
+- User Tracker function to add/modify status of any incident ID
 - Exposes a RESTful **FastAPI backend** and a friendly **Streamlit chat UI**
 
 ---
