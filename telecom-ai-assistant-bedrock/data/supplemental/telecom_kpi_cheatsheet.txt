@@ -1,0 +1,8 @@
+Telecom KPI Cheat Sheet
+
+- Registration success rate: should remain stable and near the operational baseline.
+- Session setup time: spikes often indicate signaling congestion or policy control delays.
+- Packet loss: strong indicator of transport degradation, congestion, or optical issues.
+- Latency: may increase during backhaul congestion, routing loops, or remote transport impairment.
+- PRB utilization: sustained high values indicate radio capacity pressure.
+- Call drop rate: inspect radio quality, handover success, and IMS path stability.

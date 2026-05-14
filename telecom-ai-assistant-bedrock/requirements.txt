@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+boto3
+pandas
+openpyxl
+streamlit
+requests
+python-dotenv
+pydantic>=2.0

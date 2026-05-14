@@ -1,0 +1,17 @@
+Telecom Alarm Playbook
+
+Cell Down:
+- Check site power, backhaul, and radio unit health.
+- Verify whether the fault is isolated to one sector or the entire site.
+- Review recent configuration changes and alarm correlation windows.
+- Recommended action: restore power, validate sync, and re-run cell availability checks.
+
+SCTP / Signaling Failure:
+- Validate MME / AMF reachability and transport path continuity.
+- Check firewall rules, IP route stability, and interface utilization.
+- Recommended action: inspect link state, packet loss, and retransmission counters.
+
+High PRB Utilization:
+- Correlate with busy hour traffic and interference.
+- Check scheduler configuration, power headroom, and user distribution.
+- Recommended action: optimize load balancing and capacity planning.

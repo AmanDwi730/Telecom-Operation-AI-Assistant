@@ -1,0 +1,13 @@
+Telecom RCA and Recovery Notes
+
+AMF Registration Failure:
+- Possible causes: authentication mismatch, control-plane congestion, DNS resolution issues, stale subscriber context.
+- Steps: verify AMF reachability, inspect N2/NAS traces, validate subscriber profile, and check UE mobility history.
+
+VoLTE Call Drop:
+- Possible causes: SIP timeout, IMS SBC issue, transport jitter, radio quality degradation.
+- Steps: check SIP traces, verify IMS registration, review RTP packet loss, and inspect handover events.
+
+Fiber Cut:
+- Possible causes: physical cable damage, construction work, weather impact, splice failure.
+- Steps: reroute traffic to backup path, dispatch field team, and verify attenuation once repaired.

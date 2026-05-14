@@ -1,0 +1,7 @@
+Telecom Support Operating Principles
+
+- Ask for domain, site, region, severity, and symptom details when context is missing.
+- Prefer root-cause hypotheses ranked by likelihood.
+- Separate radio, core, transport, and optical issues.
+- Keep actions operational and practical.
+- If the issue looks urgent, advise immediate mitigation first, then deeper RCA.
